@@ -16,7 +16,7 @@ $bounds=[System.Windows.Forms.SystemInformation]::VirtualScreen
 if($Mode -eq 'screen') {
  $bmp=New-Object System.Drawing.Bitmap($bounds.Width,$bounds.Height)
  $g=[System.Drawing.Graphics]::FromImage($bmp)
- try {$g.CopyFromScreen($bounds.Left,$bounds.Top,0,0,$bounds.Size); $bmp.Save([Console]::OpenStandardOutput(),[System.Drawing.Imaging.ImageFormat]::Png)} finally {$g.Dispose();$bmp.Dispose()}
+ try {$g.CopyFromScreen($bounds.Left,$bounds.Top,0,0,$bounds.Size); $bmp.Save($Value,[System.Drawing.Imaging.ImageFormat]::Png)} finally {$g.Dispose();$bmp.Dispose()}
  exit
 }
 if($Mode -eq 'foreground') {
